@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Ball : MonoBehaviour
@@ -8,9 +11,14 @@ public class Ball : MonoBehaviour
     public float baseSpeed = 5f;
     public float maxSpeed = Mathf.Infinity;
     public float currentSpeed { get; set; }
+    public int score1, score2;
+    public TMP_Text test1, test2;
 
     private void Awake()
+
     {
+        score1 = 0;
+        score2 = 0;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -43,5 +51,27 @@ public class Ball : MonoBehaviour
         currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
         rb.velocity = direction * currentSpeed;
     }
+    void Start()
+    {
+        AddStartingForce();
+    }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("leftGoal"))
+        {
+            score2++;
+            test2.SetText(score2.ToString());
+            ResetPosition();
+            AddStartingForce();
+        }
+
+        if (collision.gameObject.CompareTag("rightGoal"))
+        {
+            score1++;
+            test1.SetText(score1.ToString());
+            ResetPosition();
+            AddStartingForce();
+        }
+    }
 }
