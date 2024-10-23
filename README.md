@@ -52,6 +52,10 @@ Submit a link to your GitHub repository on Schoology.
 ### Success Criteria
 You are successful once you have shown proficiency in each skill by scoring at least a 'Proficient' on each one.
 
+my notes
+
+https://www.youtube.com/watch?v=NRUk7YzXyhE
+
 ---
 
 ### Examples
