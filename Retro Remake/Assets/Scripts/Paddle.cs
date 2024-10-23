@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class Paddle : MonoBehaviour
+public class Paddle : MonoBehaviour
 {
     protected Rigidbody2D rb;
 
     public float speed = 8f;
     [Tooltip("Changes how the ball bounces off the paddle depending on where it hits the paddle. The further from the center of the paddle, the steeper the bounce angle.")]
-    public bool useDynamicBounce = false;
+    public bool useDynamicBounce = true;
 
     private void Awake()
     {
